@@ -49,5 +49,4 @@ def removeList_mailing_list(name, email):
         sendEmail = email[i]
         Names.remove(sendName)
         Emails.remove(sendEmail)
-
 send_simple_message()
