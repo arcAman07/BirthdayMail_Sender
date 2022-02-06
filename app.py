@@ -19,6 +19,20 @@ for i in range(len(data)):
 # 			"to": ["amananytime07@gmail.com"],
 # 			"subject": "Hello",
 # 			"text": "Testing some Mailgun awesomness!"})
+
+def send_simple_message():
+    for i in range(0,len(Emails)):
+        email = Emails[i]
+        name = Names[i]
+        return requests.post(
+		"https://api.mailgun.net/v3/sandbox3e39c00b2df245ef80fc8053ef1e0cd6.mailgun.org/messages",
+		auth=("api", os.getenv("API_KEY")),
+		data={"from": "Excited User <amananytime07@gmail.com>",
+			"to": [email],
+			"subject": "Your Birthday Wishes",
+			"text": "Happy Birthday "+name+"!. Have a great day ahead!"})
+
+
 def add_mailing_list(name, email):
     Names.append(name)
     Emails.append(email)
@@ -28,5 +42,4 @@ def remove_mailing_list(name, email):
     Names.remove(name)
     Emails.remove(email)
 
-# send_simple_message()
-print(os.getenv("API_KEY"))
+send_simple_message()
