@@ -11,14 +11,6 @@ Names = []
 for i in range(len(data)):
     Emails.append(data.iloc[i,2])
     Names.append(data.iloc[i,1])
-# def send_simple_message():
-# 	return requests.post(
-# 		"https://api.mailgun.net/v3/sandbox3e39c00b2df245ef80fc8053ef1e0cd6.mailgun.org/messages",
-# 		auth=("api", os.getenv("API_KEY")),
-# 		data={"from": "Excited User <amananytime07@gmail.com>",
-# 			"to": ["amananytime07@gmail.com"],
-# 			"subject": "Hello",
-# 			"text": "Testing some Mailgun awesomness!"})
 
 def send_simple_message():
     for i in range(0,len(Emails)):
@@ -46,10 +38,13 @@ def addList_mailing_list(name, email):
     for i in range(0,len(name)):
         sendName = name[i]
         sendEmail = email[i]
+        Names.append(sendName)
+        Emails.append(sendEmail)
 def removeList_mailing_list(name, email):
     for i in range(0,len(name)):
         sendName = name[i]
         sendEmail = email[i]
-
+        Names.remove(sendName)
+        Emails.remove(sendEmail)
 
 send_simple_message()
