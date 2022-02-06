@@ -43,9 +43,13 @@ def remove_mailing_list(name, email):
     Emails.remove(email)
     # Need to remove data from the csv
 def addList_mailing_list(name, email):
-    
-
+    for i in range(0,len(name)):
+        sendName = name[i]
+        sendEmail = email[i]
 def removeList_mailing_list(name, email):
+    for i in range(0,len(name)):
+        sendName = name[i]
+        sendEmail = email[i]
 
 
 send_simple_message()
