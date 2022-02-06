@@ -36,10 +36,16 @@ def send_simple_message():
 def add_mailing_list(name, email):
     Names.append(name)
     Emails.append(email)
-
+    # Need to add data to the csv
 
 def remove_mailing_list(name, email):
     Names.remove(name)
     Emails.remove(email)
+    # Need to remove data from the csv
+def addList_mailing_list(name, email):
+    
+
+def removeList_mailing_list(name, email):
+
 
 send_simple_message()
