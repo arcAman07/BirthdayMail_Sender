@@ -9,6 +9,13 @@ data = pd.read_csv("C:/Users/amans/Downloads/mailingList.csv")
 Emails = []
 Names = []
 currentLength = data.shape[0]
+import pyodbc
+
+# conn = pyodbc.connect('Driver={SQL Server};'
+#                       'Server=RON\SQLEXPRESS;'
+#                       'Database=test_database;'
+#                       'Trusted_Connection=yes;')
+# cursor = conn.cursor()
 for i in range(len(data)):
     Emails.append(data.iloc[i,2])
     Names.append(data.iloc[i,1])
