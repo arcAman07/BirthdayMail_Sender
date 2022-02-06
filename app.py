@@ -8,7 +8,7 @@ load_dotenv()
 data = pd.read_csv("C:/Users/amans/Downloads/mailingList.csv")
 Emails = []
 Names = []
-currentLength = data.shape()[0]
+currentLength = data.shape[0]
 for i in range(len(data)):
     Emails.append(data.iloc[i,2])
     Names.append(data.iloc[i,1])
