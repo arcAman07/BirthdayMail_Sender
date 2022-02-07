@@ -35,12 +35,16 @@ def add_mailing_list(name, email):
     Emails.append(email)
     currentLength += 1
     # Need to add data to the csv
+    data['Name'].iloc[currentLength] = name
+    data['Email'].iloc[currentLength] = email
 
 def remove_mailing_list(name, email):
     Names.remove(name)
     Emails.remove(email)
     currentLength -= 1
     # Need to remove data from the csv
+    # data = data.drop(data[data['Email'] == email].index)
+    data = data.drop(data[data['Name'] == name].index)
 
 def addList_mailing_list(name, email):
     currentLength += len(name)
@@ -57,6 +61,3 @@ def removeList_mailing_list(name, email):
         Names.remove(sendName)
         Emails.remove(sendEmail)
 send_simple_message()
-
-# close the file
-f.close()
