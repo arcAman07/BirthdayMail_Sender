@@ -1,14 +1,23 @@
 import pandas as pd
 import pyodbc
 import mysql.connector
+from mysql.connector import errorcode
 # Import CSV
 data = pd.read_csv("C:/Users/amans/Downloads/mailingList.csv")
 df = pd.DataFrame(data)
-
 # Connect to SQL Server
-cnxn = pyodbc.connect(driver='{SQL Server}', host="localhost", database="node-reference",
-                      trusted_connection="yes", user="root", password="Aman0712")
-cursor = conn.cursor()
+try:
+  conn = mysql.connector.connect(user='root',
+                                database='node-reference')
+except mysql.connector.Error as err:
+  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+    print("Something is wrong with your user name or password")
+  elif err.errno == errorcode.ER_BAD_DB_ERROR:
+    print("Database does not exist")
+  else:
+    print(err)
+else:
+  cnx.close()
 
 # Create Table
 cursor.execute(
