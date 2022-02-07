@@ -7,9 +7,9 @@ df = pd.DataFrame(data)
 
 # Connect to SQL Server
 conn = pyodbc.connect(
-    "Driver={node-reference};"
+    "Driver={SQL Server};"
     "Server=RON\SQLEXPRESS;"
-    "Database=test_database;"
+    "Database=node-reference;"
     "Trusted_Connection=yes;"
 )
 cursor = conn.cursor()
@@ -29,7 +29,7 @@ cursor.execute(
 for row in df.itertuples():
     cursor.execute(
         """
-                INSERT INTO products (idmails, name, email)
+                INSERT INTO mails (idmails, name, email)
                 VALUES (?,?,?)
                 """,
         row.idmails,
