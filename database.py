@@ -8,7 +8,7 @@ df = pd.DataFrame(data)
 # Connect to SQL Server
 conn = pyodbc.connect(
     "Driver={SQL Server};"
-    "Server=RON\SQLEXPRESS;"
+    "Server=localhost:3306;"
     "Database=node-reference;"
     "Trusted_Connection=yes;"
 )
@@ -18,7 +18,7 @@ cursor = conn.cursor()
 cursor.execute(
     """
 		CREATE TABLE mails (
-			idmails int primary key,
+			idmail int primary key,
 			name nvarchar(50),
 			email nvarchar(100),
 			)
@@ -29,11 +29,11 @@ cursor.execute(
 for row in df.itertuples():
     cursor.execute(
         """
-                INSERT INTO mails (idmails, name, email)
+                INSERT INTO mails (idmail, name, email)
                 VALUES (?,?,?)
                 """,
-        row.idmails,
-        row.names,
+        row.idmail,
+        row.name,
         row.email,
     )
 conn.commit()
