@@ -1,7 +1,7 @@
 import csv
 from csv import writer
 # open the file in the write mode
-f = open('C:/Users/amans/Downloads/mailingList.csv', 'w')
+# f = open('C:/Users/amans/Downloads/mailingList.csv', 'w')
 
 # create the csv writer
 # spamwriter = writer(f)
@@ -14,7 +14,7 @@ row = [4,"Tanmay","b@gmail.com"]
 # # close the file
 # f.close()
 
-with open(f, 'a') as f_object:
+with open("C:/Users/amans/Downloads/mailingList.csv", 'a') as f_object:
   
     # Pass this file object to csv.writer()
     # and get a writer object
