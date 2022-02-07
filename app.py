@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 import csv
 load_dotenv()
 data = pd.read_csv("C:/Users/amans/Downloads/mailingList.csv")
+f = open('C:/Users/amans/Downloads/mailingList.csv', 'w')
+writer = csv.writer(f)
 Emails = []
 Names = []
 currentLength = data.shape[0]
