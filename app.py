@@ -30,20 +30,24 @@ def send_simple_message():
 def add_mailing_list(name, email):
     Names.append(name)
     Emails.append(email)
+    currentLength += 1
     # Need to add data to the csv
 
 def remove_mailing_list(name, email):
     Names.remove(name)
     Emails.remove(email)
+    currentLength -= 1
     # Need to remove data from the csv
 
 def addList_mailing_list(name, email):
+    currentLength += len(name)
     for i in range(0,len(name)):
         sendName = name[i]
         sendEmail = email[i]
         Names.append(sendName)
         Emails.append(sendEmail)
 def removeList_mailing_list(name, email):
+    currentLength -= len(name)
     for i in range(0,len(name)):
         sendName = name[i]
         sendEmail = email[i]
