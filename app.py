@@ -4,6 +4,7 @@ import numpy as np
 import os
 import requests
 from dotenv import load_dotenv
+import csv
 load_dotenv()
 data = pd.read_csv("C:/Users/amans/Downloads/mailingList.csv")
 Emails = []
