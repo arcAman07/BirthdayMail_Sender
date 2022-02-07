@@ -47,17 +47,21 @@ def remove_mailing_list(name, email):
     data = data.drop(data[data['Name'] == name].index)
 
 def addList_mailing_list(name, email):
-    currentLength += len(name)
     for i in range(0,len(name)):
         sendName = name[i]
         sendEmail = email[i]
         Names.append(sendName)
         Emails.append(sendEmail)
+        data['Name'].iloc[currentLength] = sendName
+        data['Email'].iloc[currentLength] = sendEmail
+        currentLength += 1
 def removeList_mailing_list(name, email):
-    currentLength -= len(name)
     for i in range(0,len(name)):
         sendName = name[i]
         sendEmail = email[i]
         Names.remove(sendName)
         Emails.remove(sendEmail)
+        data = data.drop(data[data['Name'] == sendName].index)
+        # data = data.drop(data[data['Email'] == sendEmail].index)
+        currentLength -= 1
 send_simple_message()
