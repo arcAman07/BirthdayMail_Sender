@@ -55,3 +55,6 @@ def removeList_mailing_list(name, email):
         Names.remove(sendName)
         Emails.remove(sendEmail)
 send_simple_message()
+
+# close the file
+f.close()
