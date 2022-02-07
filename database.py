@@ -2,33 +2,38 @@ import pandas as pd
 import pyodbc
 
 # Import CSV
-data = pd.read_csv ("C:/Users/amans/Downloads/DSC Task 1 - Absenteeism_at_work.csv")   
+data = pd.read_csv("C:/Users/amans/Downloads/DSC Task 1 - Absenteeism_at_work.csv")
 df = pd.DataFrame(data)
 
 # Connect to SQL Server
-conn = pyodbc.connect('Driver={SQL Server};'
-                      'Server=RON\SQLEXPRESS;'
-                      'Database=test_database;'
-                      'Trusted_Connection=yes;')
+conn = pyodbc.connect(
+    "Driver={node-reference};"
+    "Server=RON\SQLEXPRESS;"
+    "Database=test_database;"
+    "Trusted_Connection=yes;"
+)
 cursor = conn.cursor()
 
 # Create Table
-cursor.execute('''
-		CREATE TABLE products (
-			product_id int primary key,
-			product_name nvarchar(50),
-			price int
+cursor.execute(
+    """
+		CREATE TABLE mails (
+			idmails int primary key,
+			name nvarchar(50),
+			email nvarchar(100),
 			)
-               ''')
+               """
+)
 
 # Insert DataFrame to Table
 for row in df.itertuples():
-    cursor.execute('''
-                INSERT INTO products (product_id, product_name, price)
+    cursor.execute(
+        """
+                INSERT INTO products (idmails, name, email)
                 VALUES (?,?,?)
-                ''',
-                row.product_id, 
-                row.product_name,
-                row.price
-                )
+                """,
+        row.idmails,
+        row.names,
+        row.email,
+    )
 conn.commit()
