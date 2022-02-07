@@ -2,7 +2,7 @@ import pandas as pd
 import pyodbc
 
 # Import CSV
-data = pd.read_csv("C:/Users/amans/Downloads/DSC Task 1 - Absenteeism_at_work.csv")
+data = pd.read_csv("C:/Users/amans/Downloads/mailingList.csv")
 df = pd.DataFrame(data)
 
 # Connect to SQL Server
